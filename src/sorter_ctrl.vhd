@@ -6,7 +6,7 @@
 -- Author     : Wojciech M. Zabolotny <wzab@ise.pw.edu.pl>
 -- Company    : 
 -- Created    : 2010-05-14
--- Last update: 2011-07-11
+-- Last update: 2013-07-04
 -- Platform   : 
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -51,7 +51,7 @@ entity sorter_ctrl is
   
   generic (
     NLEVELS   : integer;                -- number of levels (max number of
-                                       -- address bits
+                                        -- address bits
     NADDRBITS : integer                 -- number of used address bits
     );
 
@@ -136,6 +136,8 @@ begin
     tm_addr         <= (others => '0');
     s_ready_out_i   <= s_ready_out;
     addr_i          <= addr;
+    up_out_val      <= DATA_REC_INIT_DATA;  -- to avoid latches
+    low_out_val     <= DATA_REC_INIT_DATA;  -- to avoid latches
     s_low_in_addr_i <= s_low_in_addr;
     s_low_in_i      <= low_in;
     low_out         <= '0';
